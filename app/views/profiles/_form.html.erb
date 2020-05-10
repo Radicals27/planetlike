@@ -1,0 +1,92 @@
+<%= form_with(model: profile, local: true) do |form| %>
+  <% if profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+        <% profile.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sex %>
+    <%= form.text_field :sex %>
+  </div>
+
+  <div class="field">
+    <%= form.label :age %>
+    <%= form.number_field :age %>
+  </div>
+
+  <div class="field">
+    <%= form.label :about_me %>
+    <%= form.text_field :about_me %>
+  </div>
+
+  <div class="field">
+    <%= form.label :work_education %>
+    <%= form.text_field :work_education %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :height %>
+    <%= form.text_field :height %>
+  </div>
+
+  <div class="field">
+    <%= form.label :health %>
+    <%= form.text_field :health %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vices %>
+    <%= form.text_field :vices %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pets %>
+    <%= form.text_field :pets %>
+  </div>
+
+  <div class="field">
+    <%= form.label :children %>
+    <%= form.text_field :children %>
+  </div>
+
+  <div class="field">
+    <%= form.label :religion %>
+    <%= form.text_field :religion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :politics %>
+    <%= form.text_field :politics %>
+  </div>
+
+  <div class="field">
+    <%= form.label :starsign %>
+    <%= form.text_field :starsign %>
+  </div>
+
+  <div class="field">
+    <%= form.label :looking_for %>
+    <%= form.text_field :looking_for %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
