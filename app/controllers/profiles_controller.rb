@@ -25,6 +25,7 @@ class ProfilesController < ApplicationController
   # POST /profiles.json
   def create
     @profile = Profile.new(profile_params)
+    @profile.picture.attach(params[:profile][:picture])
 
     respond_to do |format|
       if @profile.save
