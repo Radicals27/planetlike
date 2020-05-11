@@ -24,9 +24,11 @@ class ProfilesController < ApplicationController
 
   # POST /profiles
   # POST /profiles.json
+  
   def create
     @profile = Profile.new(profile_params)
     @profile.picture.attach(params[:profile][:picture])
+    @profile.user_id = current_user.id
 
     respond_to do |format|
       if @profile.save
