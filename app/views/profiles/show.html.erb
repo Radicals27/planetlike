@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 <p>
-  <%= image_tag @profile.picture, width: 400 %>
+  <% if @profile.picture.attached? %>
+    <%= image_tag @profile.picture, width: 400  %>
+  <% else %>
+    <strong>You still need to upload a picture!</strong>
+  <% end %>
 </p>
 
 <p>
