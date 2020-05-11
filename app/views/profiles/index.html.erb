@@ -28,6 +28,7 @@
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
+        <td><%= image_tag profile.picture, width: 50  %></td>
         <td><%= profile.name %></td>
         <td><%= profile.sex %></td>
         <td><%= profile.age %></td>
