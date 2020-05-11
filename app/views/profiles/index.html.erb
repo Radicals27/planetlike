@@ -28,8 +28,7 @@
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
-      <td><%= link_to image_tag(profile.picture), profile %></td>
-        <!-- <td><%= image_tag profile.picture, width: 50  %></td> -->
+      <td><%= link_to image_tag(profile.picture, width: 50), profile%></td>
         <td><%= profile.name %></td>
         <td><%= profile.sex %></td>
         <td><%= profile.age %></td>
