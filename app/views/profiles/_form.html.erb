@@ -22,13 +22,18 @@
   </div>
 
   <div class="field">
-    <%= form.label :sex %>
-    <%= form.text_field :sex %>
+    <%= form.radio_button :sex, 'Male' %>Male<br/>
+    <%= form.radio_button :sex, 'Female' %>Female<br/>
   </div>
 
   <div class="field">
     <%= form.label :age %>
     <%= form.number_field :age %>
+  </div>
+
+    <div class="field">
+    <%= form.label :orientation %>
+    <%= form.text_field :orientation %>
   </div>
 
   <div class="field">
