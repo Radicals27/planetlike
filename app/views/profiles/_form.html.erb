@@ -64,7 +64,7 @@
 
   <div class="field">
     <%= form.label :height %>
-    <%= form.text_field :height %>
+    <%= form.select :height, ((60..240).map {|i| ["#{i}cm",i] } << [">240cm",241]) %>
   </div>
 
   <div class="field">
