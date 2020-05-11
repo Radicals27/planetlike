@@ -33,7 +33,7 @@
 
     <div class="field">
     <%= form.label :orientation %>
-    <%= form.text_field :orientation %>
+    <%= form.select :orientation, ['Straight', 'Gay', 'Bisexual']%>
   </div>
 
   <div class="field">
@@ -48,7 +48,18 @@
 
   <div class="field">
     <%= form.label :location %>
-    <%= form.text_field :location %>
+    <%= form.select :location, [
+      'Africa', 
+      'Australia',
+      'America', 
+      'Canada', 
+      'Central America', 
+      'Europe', 
+      'Middle East', 
+      'New Zealand', 
+      'Russia', 
+      'South America'
+    ]%>
   </div>
 
   <div class="field">
@@ -58,42 +69,111 @@
 
   <div class="field">
     <%= form.label :health %>
-    <%= form.text_field :health %>
+    <%= form.select :health, [
+      'I do not exercise',
+      'I exercise once per week',
+      'I exercise a few days per week',
+      'I exercise just about every day',
+      'Prefer not to answer'
+    ]%>
   </div>
 
   <div class="field">
     <%= form.label :vices %>
-    <%= form.text_field :vices %>
+    <%= form.select :vices, [
+      'I don\'t drink or smoke',
+      'I don\'t smoke but I drink socially',
+      'I don\'t smoke but I drink regularly',
+      'I smoke socially but I don\'t drink',
+      'I smoke socially and I drink socially',
+      'I smoke socially and I drink regularly',
+      'I smoke regularly but I don\'t drink',
+      'I smoke regularly and I drink socially',
+      'I smoke regularly and I drink regularly',
+      'Prefer not to answer'
+    ]%>
   </div>
 
   <div class="field">
     <%= form.label :pets %>
-    <%= form.text_field :pets %>
+    <%= form.select :pets, [
+      'I don\'t have any pets and I don\'t want any',
+      'I don\'t have any pets but I\'m flexible',
+      'I don\'t have any pets but I\'d love some',
+      'I have a pet',
+      'I have several pets',
+      'Prefer not to answer'
+    ]%>
   </div>
 
   <div class="field">
     <%= form.label :children %>
-    <%= form.text_field :children %>
+    <%= form.select :children, [
+      'I don\'t have any children and I don\'t want any',
+      'I don\'t have any children but I\'m flexible',
+      'I don\'t have any children but I want some',
+      'I have a child but I don\'t want more',
+      'I have a child and I want more',
+      'I have kids but I don\'t want more',
+      'I have kids and I want more',
+      'Prefer not to answer'
+    ]%>
   </div>
 
   <div class="field">
     <%= form.label :religion %>
-    <%= form.text_field :religion %>
+    <%= form.select :religion, [
+      'Atheist',
+      'Agnostic',
+      'Buddhist',
+      'Christian',
+      'Catholic',
+      'Orthodox',
+      'Prefer not to answer'
+    ]%>
   </div>
 
   <div class="field">
     <%= form.label :politics %>
-    <%= form.text_field :politics %>
+    <%= form.select :politics, [
+      'Conservative',
+      'Liberal',
+      'Centrist',
+      'Alternative',
+      'Prefer not to answer'
+    ]%>
   </div>
 
   <div class="field">
     <%= form.label :starsign %>
-    <%= form.text_field :starsign %>
+    <%= form.select :starsign, [
+      'Aquarius',
+      'Aries',
+      'Cancer',
+      'Capricorn',
+      'Gemini',
+      'Leo',
+      'Libra',
+      'Pisces',
+      'Sagittarius',
+      'Scorpio',
+      'Taurus',
+      'Virgo',
+      'Prefer not to answer'
+    ]%>
   </div>
 
   <div class="field">
     <%= form.label :looking_for %>
-    <%= form.text_field :looking_for %>
+    <%= form.select :looking_for, [
+      'Friends',
+      'Penpals',
+      'Something casual',
+      'Short-term dating',
+      'Long-term dating',
+      'Let\'s see what happens',
+      'Prefer not to answer'
+    ]%>
   </div>
 
   <div class="actions">
