@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :validate_user, only: [:edit, :update, :destroy]
 
   # GET /profiles
   # GET /profiles.json
@@ -11,11 +12,16 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+    # @profile = Profile.find(params[:id])
   end
 
   # GET /profiles/new
   def new
-    @profile = Profile.new
+    if current_user.profile == nil
+      @profile = Profile.new
+    else
+      redirect_to profiles_path
+    end
   end
 
   # GET /profiles/1/edit
@@ -69,6 +75,14 @@ class ProfilesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
       @profile = Profile.find(params[:id])
+    end
+
+    def validate_user
+      puts "**************CURRENT_USER.ID = #{current_user.id}************"
+      puts "**************PARAMS[:USER_ID] = #{params[:user_id]}************"
+      if current_user.id.to_s != Profile.find(params[:id]).user_id.to_s
+        redirect_to profiles_path
+      end
     end
 
     # Only allow a list of trusted parameters through.
