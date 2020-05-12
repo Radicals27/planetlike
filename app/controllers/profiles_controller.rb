@@ -1,7 +1,8 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :validate_user, only: [:edit, :update, :destroy]
+  before_action :validate_user, only: [:edit, :update]   #users cannot edit, update or destroy other's profiles
+  before_action :validate_admin, only: [:destroy]   #Only admins can delete a profile
 
   # GET /profiles
   # GET /profiles.json
@@ -66,7 +67,7 @@ class ProfilesController < ApplicationController
   def destroy
     @profile.destroy
     respond_to do |format|
-      format.html { redirect_to profiles_url, notice: 'Profile was successfully destroyed.' }
+      format.html { redirect_to profiles_url, notice: 'You can\'t delete profiles' }
       format.json { head :no_content }
     end
   end
@@ -78,13 +79,19 @@ class ProfilesController < ApplicationController
     end
 
     def validate_user
-      puts "**************CURRENT_USER.ID = #{current_user.id}************"
-      puts "**************PARAMS[:USER_ID] = #{params[:user_id]}************"
       if current_user.id.to_s != Profile.find(params[:id]).user_id.to_s
+        flash[:alert] = "You are not authorized!"
         redirect_to profiles_path
       end
     end
 
+    def validate_admin
+      if !current_user.has_role?(:admin)
+        flash[:alert] = "Only admins can delete profiles"
+        redirect_to profiles_path
+      end
+    end
+     
     # Only allow a list of trusted parameters through.
     def profile_params
       params.require(:profile).permit(:picture, :name, :sex, :age, :about_me, :work_education, :location, :height, :health, :vices, :pets, :children, :religion, :politics, :starsign, :looking_for, :orientation)
