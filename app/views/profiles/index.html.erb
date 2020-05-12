@@ -31,14 +31,13 @@
   </thead>
 
   <tbody>
-    <!-- <% @profiles.each do |profile| %>
+    <% @profiles.each do |profile| %>
       <tr>
-      <% if profile.picture != nil %>
+      <% if profile.picture.attached? %>
         <td><%= link_to image_tag(profile.picture, width: 50), profile%></td>
       <% else %>
         <td>You need to upload a picture!</td>
       <% end %>
-      -->
 
         <td><%= profile.name %></td>
         <td><%= profile.sex %></td>
