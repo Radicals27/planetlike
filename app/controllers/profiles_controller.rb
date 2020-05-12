@@ -7,7 +7,7 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = Profile.all
+      @profiles = Profile.all
   end
 
   # GET /profiles/1
@@ -27,10 +27,6 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
-  end
-
-  def search
-    @profiles = Profile.where("name LIKE ?", "%" + params[:q] + "%")
   end
 
   # POST /profiles

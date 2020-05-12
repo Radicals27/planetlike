@@ -1,15 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<form class="search-button-form" action="/search">
-  <input class="search-label" name="q" type="text" placeholder="Search" aria-label="Search">
-  <button class="search-button" type="submit">Search</button>
-</form>
-
 <h1>Profiles</h1>
 
 <table>
   <thead>
     <tr>
+      <th>Photo</th>
       <th>Name</th>
       <th>Sex</th>
       <th>Age</th>
@@ -38,7 +34,6 @@
       <% else %>
         <td>You need to upload a picture!</td>
       <% end %>
-
         <td><%= profile.name %></td>
         <td><%= profile.sex %></td>
         <td><%= profile.age %></td>

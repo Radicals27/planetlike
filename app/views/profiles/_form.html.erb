@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :age %>
-    <%= form.number_field :age %>
+        <%= form.select :age, ((18..100).map {|i| ["#{i}",i] } << [">100",101]) %>
   </div>
 
     <div class="field">
