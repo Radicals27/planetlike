@@ -29,6 +29,10 @@ class ProfilesController < ApplicationController
   def edit
   end
 
+  def search
+    @profiles = Profile.where("name LIKE ?", "%" + params[:q] + "%")
+  end
+
   # POST /profiles
   # POST /profiles.json
   
