@@ -1,5 +1,11 @@
 <h1>Editing Profile</h1>
 
+<% if @profile.picture.attached? %>
+<%= image_tag @profile.picture, width: 400  %>
+<% else %>
+<strong>You still need to upload a picture!</strong>
+<% end %>
+
 <%= render 'form', profile: @profile %>
 
 <%= link_to 'Show', @profile %> |
