@@ -1,5 +1,9 @@
 <h1>Contact us</h1>
 
+<% if current_user == nil %>
+ <% puts "NO CURRENT USER!!" %>
+<% end %>
+
 <form id="contact-form" action="" method="post">
     <input type="hidden" name="redirect" value="http://www.google.com" />
     <ul style="list-style-type:none;">
@@ -7,13 +11,21 @@
             <label for="name">Name:</label>
         </li>
         <li>
-            <input type="text" name="name" id="name" cols="50" rows="1" value=<%= Profile.find_by(user_id: current_user.id).name %> >
+            <% if current_user == nil %>
+                <input type="text" name="name" id="name" cols="50" rows="1" %>
+            <% else %>
+                <input type="text" name="name" id="name" cols="50" rows="1" value=<%= Profile.find_by(user_id: current_user.id).name %> >
+            <% end %>
         </li>
         <li>
             <label for="email">Email:</label>
         </li>
         <li>
-            <input type="text" name="email" id="email" cols="50" rows="1" value=<%= current_user.email %>>
+            <% if current_user == nil %>
+                <input type="text" name="email" id="email" cols="50" rows="1" %>
+            <% else %>
+                <input type="text" name="email" id="email" cols="50" rows="1" value=<%= current_user.email %> >
+            <% end %>
         </li>
         <li>
             <label for="comments">Comments:</label>

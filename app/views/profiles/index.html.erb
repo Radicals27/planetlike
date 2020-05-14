@@ -33,7 +33,12 @@
 
 <p id="notice"><%= notice %></p>
 
-<h3><%= link_to "Advanced Search", new_search_path %></h3>
+<%= link_to 'Advanced Search', new_search_path, 
+        {:style=>'color:#FFFFFF;', :class => "btn btn-primary btn-lg"} %>
+<br><br>
+
+<h2>Showing: <%= showing %> </h2>
+<br><br>
 
 <table>
 
