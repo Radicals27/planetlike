@@ -1,11 +1,42 @@
+<% if !Profile.exists?(user_id: current_user.id)  %>
+   NO PROFILE!!!
+   <% @profiles = @all_profiles %>
+
+<% elsif Profile.find_by(user_id: current_user.id).sex == 'Male' && Profile.find_by(user_id: current_user.id).orientation == 'Straight' %>
+  <% @profiles = @straight_females + @bi_females %>
+  <% showing = "straight & bi women" %>
+
+<% elsif Profile.find_by(user_id: current_user.id).sex == 'Male' && Profile.find_by(user_id: current_user.id).orientation == 'Gay' %>
+  <% @profiles = @gay_males + @bi_males %>
+  <% showing = "gay & bi men" %>
+
+<% elsif Profile.find_by(user_id: current_user.id).sex == 'Male' && Profile.find_by(user_id: current_user.id).orientation == 'Bisexual' %>
+  <% @profiles = @gay_males + @bi_males + @bi_females + @straight_females %>
+  <% showing = "gay & bi men, bi & straight women" %>
+
+<% elsif Profile.find_by(user_id: current_user.id).sex == 'Female' && Profile.find_by(user_id: current_user.id).orientation == 'Straight' %>
+  <% @profiles = @straight_men + @bi_men %>
+  <% showing = "straight & bi men" %>
+
+<% elsif Profile.find_by(user_id: current_user.id).sex == 'Female' && Profile.find_by(user_id: current_user.id).orientation == 'Gay' %>
+  <% @profiles = @gay_females + @bi_females %>
+  <% showing = "gay & bi women" %>
+
+<% elsif Profile.find_by(user_id: current_user.id).sex == 'Female' && Profile.find_by(user_id: current_user.id).orientation == 'Bisexual' %>
+  <% @profiles = @gay_females + @bi_females + @straight_men + @bi_men %>
+  <% showing = "gay & bi women, straight & bi men" %>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Profiles</h1>
+<h1>Showing: <%= showing %></h1>
 
 <table>
 
   <tbody>
     <div class="row text-center">
+
     <% @profiles.each do |profile| %>
 
       <div class="col-lg-3 col-md-6 mb-4">
