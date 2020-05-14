@@ -1,0 +1,27 @@
+<h1>Advanced Search</h1>
+<%= form_for @search, html: {class: "pure-form"} do |s| %>
+    <div class="field">
+        <%= s.label :name %><br />
+        <%= s.text_field :name %>
+
+        <%= s.label :sex %><br />
+        <%= s.select :sex, options_for_select(@sexes), { include_blank: true} %>
+
+        <%= s.label :orientation %><br />
+        <%= s.text_field :orientation %>
+
+        <%= s.label :about_me %><br />
+        <%= s.text_field :about_me %>
+
+        <%= s.label :work_education %><br />
+        <%= s.text_field :work_education %>
+
+        <%= s.label :location %><br />
+        <%= s.text_field :location %>
+
+        <%= s.label :looking_for %><br />
+        <%= s.text_field :looking_for %>
+
+        <div class="actions"><%= s.submit "Search", class: "" %></div>
+    <% end %>
+    <p> <%= link_to 'Back', profiles_path %></p>

@@ -38,6 +38,8 @@
   <%= submit_tag "Search" %>
 <% end %>
 
+<%= link_to "Advanced Search", new_search_path %>
+
 <h1>Profiles</h1>
 <% if params[:search] == "" || params[:search] == nil  %>
   <h1>Showing: <%= showing %></h1>
