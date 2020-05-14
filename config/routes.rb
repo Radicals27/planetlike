@@ -6,6 +6,4 @@ Rails.application.routes.draw do
   resources :profiles
   resources :searches
   root to: "profiles#index"
-
-
 end
