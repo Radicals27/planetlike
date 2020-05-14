@@ -55,13 +55,13 @@
       <h1 class="display-3">A Warm Welcome!</h1>
       <% if !Profile.exists?(user_id: current_user.id) %>
         <p class="lead">Welcome, <%= current_user.email %>, click below to make a new profile</p>
-        <%= link_to 'New profile', new_profile_path, class: "btn btn-primary btn-lg" %>
+        <%= link_to 'New profile', new_profile_path, 
+        {:style=>'color:#FFFFFF;', :class => "btn btn-primary btn-lg"} %>
       <% else %>
         <p class="lead">Welcome back, <%= current_user.email %>, click below to edit your profile</p>
         <%= link_to 'Edit profile', edit_profile_path(Profile.find_by(user_id: current_user.id).id), 
         {:style=>'color:#FFFFFF;', :class => "btn btn-primary btn-lg"} %>
-      <% end %>    
-
+      <% end %>
     <% end %>
     </header>
 

@@ -1,5 +1,9 @@
 <% if !Profile.exists?(user_id: current_user.id)  %>
-   NO PROFILE!!!
+   You don't have a profile yet, displaying all profiles...
+   <% @profiles = @all_profiles %>
+
+<% elsif current_user.has_role?(:admin) %>
+   Administrator detected, displaying all profiles...
    <% @profiles = @all_profiles %>
 
 <% elsif Profile.find_by(user_id: current_user.id).sex == 'Male' && Profile.find_by(user_id: current_user.id).orientation == 'Straight' %>
