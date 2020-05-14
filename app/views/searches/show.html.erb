@@ -5,11 +5,22 @@
     <p> No Records found </p>
 
     <% else %>
+    <div class="row text-center">
     <% @search.search_profiles.each do |c| %>
         <br>
-        <div class="div">
-        <h1><%= link_to image_tag(c.picture, width: 200), c %></h1>
-        <h1><%= c.name %></h1>
+        <div class="col-lg-3 col-md-6 mb-4">
+        
+            <div class="card h-100">
+            <img class="card-img-top" src="" alt="">
+            <%= link_to image_tag(c.picture, width: 200), c %>
+            
+            <div class="card-body">
+                <h4 class="card-title"><%= c.name %></h4>
+                <p class="card-text"><%= c.age %></p>
+            </div>
+            
+            </div>
         </div>
     <% end %>
+    </div>
 <% end %>
