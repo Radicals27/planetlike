@@ -7,7 +7,17 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-      @profiles = Profile.all
+      @all_profiles = Profile.all
+
+      @gay_males = Profile.where(sex: 'Male').where(orientation: 'Gay')
+      @gay_females = Profile.where(sex: 'Female').where(orientation: 'Gay')
+
+      @bi_males = Profile.where(sex: 'Male').where(orientation: 'Bisexual')
+      @bi_females = Profile.where(sex: 'Female').where(orientation: 'Bisexual')
+
+      @straight_males = Profile.where(sex: 'Male').where(orientation: 'Straight')
+      @straight_females = Profile.where(sex: 'Female').where(orientation: 'Straight')
+
   end
 
   # GET /profiles/1
