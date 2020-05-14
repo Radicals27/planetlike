@@ -1,0 +1,40 @@
+<h1>Contact us</h1>
+
+<form id="contact-form" action="" method="post">
+    <input type="hidden" name="redirect" value="http://www.google.com" />
+    <ul style="list-style-type:none;">
+        <li>
+            <label for="name">Name:</label>
+        </li>
+        <li>
+            <input type="text" name="name" id="name" cols="50" rows="1" value=<%= Profile.find_by(user_id: current_user.id).name %> >
+        </li>
+        <li>
+            <label for="email">Email:</label>
+        </li>
+        <li>
+            <input type="text" name="email" id="email" cols="50" rows="1" value=<%= current_user.email %>>
+        </li>
+        <li>
+            <label for="comments">Comments:</label>
+        </li>
+        <li>
+            <textarea name="comments" id="comments" cols="50" rows="5"></textarea>
+        </li>
+        <li>
+            <input type="button" value="submit" />
+            <input type="reset" value="clear all fields" />
+        </li>
+    </ul>
+</form>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
