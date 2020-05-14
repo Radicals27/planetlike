@@ -8,6 +8,7 @@
     <% @search.search_profiles.each do |c| %>
         <br>
         <div class="div">
+        <h1><%= link_to image_tag(c.picture, width: 200), c %></h1>
         <h1><%= c.name %></h1>
         </div>
     <% end %>

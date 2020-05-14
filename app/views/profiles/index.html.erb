@@ -33,20 +33,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<%= form_tag profiles_path, :method => 'get' do %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "Search" %>
-<% end %>
-
-<%= link_to "Advanced Search", new_search_path %>
-
-<h1>Profiles</h1>
-<% if params[:search] == "" || params[:search] == nil  %>
-  <h1>Showing: <%= showing %></h1>
-<% else %>
-  <% @profiles = Profile.search(params[:search]) %>
-  <h1>Showing: Search results...</h1>
-<% end %>
+<h3><%= link_to "Advanced Search", new_search_path %></h3>
 
 <table>
 

@@ -1,26 +1,40 @@
 <h1>Advanced Search</h1>
 <%= form_for @search, html: {class: "pure-form"} do |s| %>
     <div class="field">
-        <%= s.label :name %><br />
-        <%= s.text_field :name %>
+        <p>
+            <%= s.label :name %><br />
+            <%= s.text_field :name %>
+        </p>
 
-        <%= s.label :sex %><br />
-        <%= s.select :sex, options_for_select(@sexes), { include_blank: true} %>
+        <p>
+            <%= s.label :sex %><br />
+            <%= s.select :sex, options_for_select(@sex_options), { include_blank: true} %>
+        </p>
 
-        <%= s.label :orientation %><br />
-        <%= s.text_field :orientation %>
+        <p>
+            <%= s.label :orientation %><br />
+            <%= s.select :orientation, options_for_select(@orientation_options), { include_blank: true} %>
+        </p>
 
-        <%= s.label :about_me %><br />
-        <%= s.text_field :about_me %>
+        <p>
+            <%= s.label :about_me %><br />
+            <%= s.text_field :about_me %>
+        </p>
 
-        <%= s.label :work_education %><br />
-        <%= s.text_field :work_education %>
+        <p>
+            <%= s.label :work_education %><br />
+            <%= s.text_field :work_education %>
+        </p>
 
-        <%= s.label :location %><br />
-        <%= s.text_field :location %>
+        <p>
+            <%= s.label :location %><br />
+            <%= s.select :location, options_for_select(@location_options), { include_blank: true} %>
+        </p>
 
-        <%= s.label :looking_for %><br />
-        <%= s.text_field :looking_for %>
+        <p>
+            <%= s.label :looking_for %><br />
+            <%= s.select :looking_for, options_for_select(@looking_for_options), { include_blank: true} %>
+        </p>
 
         <div class="actions"><%= s.submit "Search", class: "" %></div>
     <% end %>
