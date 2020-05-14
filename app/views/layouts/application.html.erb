@@ -17,32 +17,29 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home
+            <%= link_to 'Home', profiles_path, class: "nav-link" %>
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <%= link_to 'About', nav_about_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <%= link_to 'Contact', nav_contact_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
               <% if user_signed_in? %>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Welcome, <%= current_user.email %>!</a>
+                  <a class="nav-link" style="pointer-events: none; cursor: default;" href="#">Welcome, <%= current_user.email %>!</a>
                 </li>
                 <li class="nav-item">
-                <%= link_to 'Logout', destroy_user_session_path, method: "delete", class: "nav-link" %>
+                  <%= link_to 'Logout', destroy_user_session_path, method: "delete", class: "nav-link" %>
                 </li>
 
               <% else %>
                 <li class="nav-item">
-                <%= link_to 'Login', new_user_session_path, class: "nav-link" %>
-                <li class="nav-item">
+                  <%= link_to 'Login', new_user_session_path, class: "nav-link" %>
+                  <li class="nav-item">
                 <%= link_to 'Sign Up', new_user_registration_path, class: "nav-link" %>
               <% end %> 
           </li>
