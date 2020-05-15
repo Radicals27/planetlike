@@ -19,7 +19,7 @@
   <% showing = "gay & bi men, bi & straight women" %>
 
 <% elsif Profile.find_by(user_id: current_user.id).sex == 'Female' && Profile.find_by(user_id: current_user.id).orientation == 'Straight' %>
-  <% @profiles = @straight_men + @bi_men %>
+  <% @profiles = @straight_males + @bi_males %>
   <% showing = "straight & bi men" %>
 
 <% elsif Profile.find_by(user_id: current_user.id).sex == 'Female' && Profile.find_by(user_id: current_user.id).orientation == 'Gay' %>
