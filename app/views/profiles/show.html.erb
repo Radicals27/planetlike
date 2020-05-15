@@ -89,3 +89,15 @@
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>
+
+<% puts "current_user.id: #{current_user.id}" %>
+<% puts "@profile.user_id: #{@profile.user_id}" %>
+<% puts "User with this ID: #{User.find(@profile.user_id).email}" %> 
+
+<% if @profile.user_id.to_s != current_user.id.to_s %>
+    <div class="item">
+    
+    <h3><%= link_to User.find(@profile.user_id).email, conversations_path(sender_id: current_user.id, recipient_id: User.find(@profile.user_id).id), method: "post"%></h3>
+    
+    </div>
+<% end %>
