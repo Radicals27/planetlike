@@ -5,5 +5,10 @@ Rails.application.routes.draw do
   devise_for :users
   resources :profiles
   resources :searches
+
+  resources :conversations do
+    resources :messages
+  end
+
   root to: "profiles#index"
 end

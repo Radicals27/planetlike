@@ -1,0 +1,22 @@
+<% if @over_5 %>
+  <%= link_to 'Show All', '?m=all', class: 'btn btn-link pull-right' %>
+<% end %>
+<%= link_to '<i class="glyphicon glyphicon-log-out icon-flipped"></i>'.html_safe,
+'/conversations', { :class => 'tooltips, btn btn-link', 'data-toggle' => 'tooltip',
+   'data-placement' => 'right', :title => 'Back To Inbox' } %>
+  <br>
+<% @messages.each do |message| %>
+  <% if message.body %>
+    <% user = User.find(message.user_id) %>
+    <strong><%= user.email %></strong>
+    <%= message.message_time %>
+    <%= message.body %>
+  <% end %>
+  <br>
+<% end %>
+
+<%= form_for [@conversation, @message] do |f| %>
+  <%= f.text_area :body, class: "form-control" %>
+  <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+  <%= f.submit "Send Reply", class: "form-control btn btn-primary" %>
+<% end %>
