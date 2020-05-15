@@ -3,6 +3,8 @@ class Search < ApplicationRecord
         profiles = Profile.all
 
         profiles = profiles.where(["name ILIKE ?","%#{name}%"]) if name.present?
+        profiles = profiles.where(["age >= ?", min_age]) if min_age.present?
+        profiles = profiles.where(["age <= ?", max_age]) if max_age.present?
         profiles = profiles.where(["sex LIKE ?","%#{sex}%"]) if sex.present?
         profiles = profiles.where(["orientation ILIKE ?","%#{orientation}%"]) if orientation.present?
         profiles = profiles.where(["about_me ILIKE ?","%#{about_me}%"]) if about_me.present?

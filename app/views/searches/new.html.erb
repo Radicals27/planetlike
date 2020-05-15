@@ -7,6 +7,11 @@
         </p>
 
         <p>
+            <%= s.label :min_age, "Min Age"%> - <%= s.text_field :min_age, size:10 %>
+            <%= s.label :max_age, "Max Age"%> - <%= s.text_field :max_age, size:10 %>
+        </p>
+
+        <p>
             <%= s.label :sex %><br />
             <%= s.select :sex, options_for_select(@sex_options), { include_blank: true} %>
         </p>

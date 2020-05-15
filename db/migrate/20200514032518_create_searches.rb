@@ -2,6 +2,8 @@ class CreateSearches < ActiveRecord::Migration[6.0]
   def change
     create_table :searches do |t|
       t.string :name
+      t.integer :min_age
+      t.integer :max_age
       t.string :sex
       t.string :orientation
       t.string :about_me

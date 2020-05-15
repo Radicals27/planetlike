@@ -53,16 +53,6 @@ ActiveRecord::Schema.define(version: 2020_05_15_011948) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "personal_messages", force: :cascade do |t|
-    t.text "body"
-    t.bigint "conversation_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["conversation_id"], name: "index_personal_messages_on_conversation_id"
-    t.index ["user_id"], name: "index_personal_messages_on_user_id"
-  end
-
   create_table "profiles", force: :cascade do |t|
     t.string "name"
     t.string "sex"
@@ -98,6 +88,8 @@ ActiveRecord::Schema.define(version: 2020_05_15_011948) do
 
   create_table "searches", force: :cascade do |t|
     t.string "name"
+    t.integer "min_age"
+    t.integer "max_age"
     t.string "sex"
     t.string "orientation"
     t.string "about_me"
@@ -130,6 +122,5 @@ ActiveRecord::Schema.define(version: 2020_05_15_011948) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "personal_messages", "users"
   add_foreign_key "profiles", "users"
 end
