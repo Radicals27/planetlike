@@ -1,0 +1,8 @@
+<%= form_tag subscriber_path(1), method: :put do %>
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="pk_test_z7tHaDoOKMZiSj6CSbdsws3V00X68kTAd8"
+        data-description= "A month's subscription"
+        data-amount="499">
+    </script>
+    $4.99 per month, cancel any time.
+<% end %>
