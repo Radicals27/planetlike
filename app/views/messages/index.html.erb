@@ -1,6 +1,4 @@
-<% if @over_5 %>
-  <%= link_to 'Show All', '?m=all', class: 'btn btn-link pull-right' %>
-<% end %>
+
 <%= link_to '<i class="glyphicon glyphicon-log-out icon-flipped"></i>'.html_safe,
 '/conversations', { :class => 'tooltips, btn btn-link', 'data-toggle' => 'tooltip',
    'data-placement' => 'right', :title => 'Back To Inbox' } %>
