@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'orders/new'
   get 'nav/home'
   get 'nav/about'
   get 'nav/contact'
@@ -10,5 +11,5 @@ Rails.application.routes.draw do
     resources :messages
   end
 
-  root to: "profiles#index"
+  root to: 'profiles#index'
 end

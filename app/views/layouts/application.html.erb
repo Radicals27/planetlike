@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -62,6 +63,9 @@
         <%= link_to 'Edit profile', edit_profile_path(Profile.find_by(user_id: current_user.id).id), 
         {:style=>'color:#FFFFFF;', :class => "btn btn-primary btn-lg"} %>
       <% end %>
+      <p class="lead">Upgrade to premium for $9.99!</p>
+        
+      <%= link_to 'Upgrade', new_order_path(current_user.id), {:style=>'color:#FFFFFF;', :class => "btn btn-primary btn-lg"} %>
     <% end %>
     </header>
 

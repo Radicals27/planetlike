@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/stripe/stripe-ruby
+  revision: 403f9b22f69e7ec8217e533016f84817f1a9fe7b
+  specs:
+    stripe (5.22.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -257,6 +263,7 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
+  stripe!
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)

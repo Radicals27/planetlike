@@ -60,3 +60,4 @@ gem 'activestorage-cloudinary-service'
 gem "rolify", "~> 5.2"
 
 gem 'bootstrap-sass'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
