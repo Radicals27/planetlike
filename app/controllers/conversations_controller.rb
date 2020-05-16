@@ -1,5 +1,6 @@
 class ConversationsController < ApplicationController
     before_action :authenticate_user!
+    before_action :validate_subscriber
 
     def index
         @users = User.all
@@ -16,6 +17,13 @@ class ConversationsController < ApplicationController
     end
 
     private
+
+    def validate_subscriber
+        if !current_user.subscribed
+            flash[:alert] = "Only subscribers can message other users!"
+            redirect_to profiles_path
+        end
+    end
 
     def conversation_params
         params.permit(:sender_id, :recipient_id)
