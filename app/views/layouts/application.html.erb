@@ -51,8 +51,10 @@
       </div>
     </div>
   </nav>
+
   <br><br>
-  <%= image_tag "icon.png", style: 'width:20%;float:left;'%>
+
+  <%= image_tag "icon.png", style: 'width:20%;float:left;' %>
   <div class="container">
     <% if user_signed_in? %>
     <header class="jumbotron my-4">
@@ -60,16 +62,18 @@
       <% if !Profile.exists?(user_id: current_user.id) %>
         <p class="lead">Welcome, <%= current_user.email %>, click below to make a new profile</p>
         <%= link_to 'New profile', new_profile_path, 
-        {:style=>'color:#FFFFFF;', :class => "btn btn-primary btn-lg"} %>
+        {:style=>'color:#FFFFFF;font-size:1.5em;', :class => "btn btn-primary btn-lg"} %>
       <% else %>
         <p class="lead">Welcome back, <%= current_user.email %>, click below to edit your profile</p>
         <%= link_to 'Edit profile', edit_profile_path(Profile.find_by(user_id: current_user.id).id), 
-        {:style=>'color:#FFFFFF;', :class => "btn btn-primary btn-lg"} %>
+        {:style=>'color:#FFFFFF;font-size:1.5em;', :class => "btn btn-primary btn-lg"} %>
       <% end %>
 
       <% if current_user.subscribed %>
         <p></p>
-        <p>You are a permium member, you can contact other users.</p>
+        <p>You are a permium member, you can contact other users:</p>
+        <%= link_to 'My conversations', conversations_path, 
+        {:style=>'color:#FFFFFF;font-size:1.5em;', :class => "btn btn-primary btn-lg"} %>
       <% else %>
         <p></p>
         <p>You are not a premium user, upgrade to contact other users.</p>

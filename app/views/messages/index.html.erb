@@ -1,20 +1,17 @@
-
-<%= link_to '<i class="glyphicon glyphicon-log-out icon-flipped"></i>'.html_safe,
-'/conversations', { :class => 'tooltips, btn btn-link', 'data-toggle' => 'tooltip',
-   'data-placement' => 'right', :title => 'Back To Inbox' } %>
-  <br>
 <% @messages.each do |message| %>
   <% if message.body %>
     <% user = User.find(message.user_id) %>
-    <strong><%= user.email %></strong>
-    <%= message.message_time %>
-    <%= message.body %>
+    <div id="" style="font-size: 1.5em;">
+      <strong><%= user.email %></strong>
+      <%= message.message_time %>
+      <%= message.body %>
+    </div>
   <% end %>
   <br>
 <% end %>
 
 <%= form_for [@conversation, @message] do |f| %>
-  <%= f.text_area :body, class: "form-control" %>
+  <%= f.text_area :body, class: "form-control", style: "font-size: 1.5em" %>
   <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
-  <%= f.submit "Send Reply", class: "form-control btn btn-primary" %>
+  <%= f.submit "Send Reply", class: "form-control btn btn-primary", style: "font-size: 1.5em;" %>
 <% end %>

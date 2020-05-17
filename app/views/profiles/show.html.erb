@@ -7,82 +7,82 @@
   <% end %>
 </p>
 
-<p>
+<p style="font-size:1.5em;">
   <strong>Name:</strong>
   <%= @profile.name %>
 </p>
 
-<p>
+<p style="font-size:1.5em;">
   <strong>Sex:</strong>
   <%= @profile.sex %>
 </p>
 
-<p>
+<p style="font-size:1.5em;">
   <strong>Age:</strong>
   <%= @profile.age %>
 </p>
 
-<p>
+<p style="font-size:1.5em;">
   <strong>Orientation:</strong>
   <%= @profile.orientation %>
 </p>
 
-<p>
+<p style="font-size:1.5em;">
   <strong>About me:</strong>
   <%= @profile.about_me %>
 </p>
 
-<p>
+<p style="font-size:1.5em;">
   <strong>Work education:</strong>
   <%= @profile.work_education %>
 </p>
 
-<p>
+<p style="font-size:1.5em;">
   <strong>Location:</strong>
   <%= @profile.location %>
 </p>
 
-<p>
+<p style="font-size:1.5em;">
   <strong>Height:</strong>
   <%= @profile.height %>
 </p>
 
-<p>
+<p style="font-size:1.5em;">
   <strong>Health:</strong>
   <%= @profile.health %>
 </p>
 
-<p>
+<p style="font-size:1.5em;">
   <strong>Vices:</strong>
   <%= @profile.vices %>
 </p>
 
-<p>
+<p style="font-size:1.5em;">
   <strong>Pets:</strong>
   <%= @profile.pets %>
 </p>
 
-<p>
+<p style="font-size:1.5em;">
   <strong>Children:</strong>
   <%= @profile.children %>
 </p>
 
-<p>
+<p style="font-size:1.5em;">
   <strong>Religion:</strong>
   <%= @profile.religion %>
 </p>
 
-<p>
+<p style="font-size:1.5em;">
   <strong>Politics:</strong>
   <%= @profile.politics %>
 </p>
 
-<p>
+<p style="font-size:1.5em;">
   <strong>Starsign:</strong>
   <%= @profile.starsign %>
 </p>
 
-<p>
+<p style="font-size:1.5em;">
   <strong>Looking for:</strong>
   <%= @profile.looking_for %>
 </p>
@@ -90,6 +90,10 @@
 <% if @profile.user_id.to_s != current_user.id.to_s %>
     <div class="item">
     <% contact_link = "Contact " + Profile.find_by(user_id: @profile.user_id).name.to_s%>
-    <h3><%= link_to contact_link, conversations_path(sender_id: current_user.id, recipient_id: User.find(@profile.user_id).id), method: "post"%></h3>
+    <h3>
+    <%= link_to contact_link, conversations_path(sender_id: current_user.id, recipient_id: User.find(@profile.user_id).id), method: "post",
+    style: 'color:#FFFFFF;font-size:1em;', class: "btn btn-primary btn-lg"   %>
+    
+    </h3>
     </div>
 <% end %>
