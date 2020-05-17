@@ -11,42 +11,42 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field" style="font-size:1.5em">
     <%= form.label :picture %>
     <%= form.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg,image/webp' %>
   </div>
 
-  <div class="field">
+  <div class="field" style="font-size:1.5em">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
+  <div class="field" style="font-size:1.5em">
     <%= form.radio_button :sex, 'Male' %>Male<br/>
     <%= form.radio_button :sex, 'Female' %>Female<br/>
   </div>
 
-  <div class="field">
+  <div class="field" style="font-size:1.5em">
     <%= form.label :age %>
         <%= form.select :age, ((18..100).map {|i| ["#{i}",i] } << [">100",101]) %>
   </div>
 
-    <div class="field">
+    <div class="field" style="font-size:1.5em">
     <%= form.label :orientation %>
     <%= form.select :orientation, ['Straight', 'Gay', 'Bisexual']%>
   </div>
 
-  <div class="field">
+  <div class="field" style="font-size:1.5em">
     <%= form.label :about_me %>
     <%= form.text_field :about_me %>
   </div>
 
-  <div class="field">
+  <div class="field" style="font-size:1.5em">
     <%= form.label :work_education %>
     <%= form.text_field :work_education %>
   </div>
 
-  <div class="field">
+  <div class="field" style="font-size:1.5em">
     <%= form.label :location %>
     <%= form.select :location, [
       'Africa',
@@ -64,12 +64,12 @@
     ]%>
   </div>
 
-  <div class="field">
+  <div class="field" style="font-size:1.5em">
     <%= form.label :height %>
     <%= form.select :height, ((60..240).map {|i| ["#{i}cm",i] } << [">240cm",241]) %>
   </div>
 
-  <div class="field">
+  <div class="field" style="font-size:1.5em">
     <%= form.label :health %>
     <%= form.select :health, [
       'I do not exercise',
@@ -80,7 +80,7 @@
     ]%>
   </div>
 
-  <div class="field">
+  <div class="field" style="font-size:1.5em">
     <%= form.label :vices %>
     <%= form.select :vices, [
       'I don\'t drink or smoke',
@@ -96,7 +96,7 @@
     ]%>
   </div>
 
-  <div class="field">
+  <div class="field" style="font-size:1.5em">
     <%= form.label :pets %>
     <%= form.select :pets, [
       'I don\'t have any pets and I don\'t want any',
@@ -108,7 +108,7 @@
     ]%>
   </div>
 
-  <div class="field">
+  <div class="field" style="font-size:1.5em">
     <%= form.label :children %>
     <%= form.select :children, [
       'I don\'t have any children and I don\'t want any',
@@ -122,7 +122,7 @@
     ]%>
   </div>
 
-  <div class="field">
+  <div class="field" style="font-size:1.5em">
     <%= form.label :religion %>
     <%= form.select :religion, [
       'Atheist',
@@ -137,7 +137,7 @@
     ]%>
   </div>
 
-  <div class="field">
+  <div class="field" style="font-size:1.5em">
     <%= form.label :politics %>
     <%= form.select :politics, [
       'Conservative',
@@ -149,7 +149,7 @@
     ]%>
   </div>
 
-  <div class="field">
+  <div class="field" style="font-size:1.5em">
     <%= form.label :starsign %>
     <%= form.select :starsign, [
       'Aquarius',
@@ -168,7 +168,7 @@
     ]%>
   </div>
 
-  <div class="field">
+  <div class="field" style="font-size:1.5em">
     <%= form.label :looking_for %>
     <%= form.select :looking_for, [
       'Friends',
@@ -181,7 +181,7 @@
     ]%>
   </div>
 
-  <div class="actions">
+  <div class="actions" style="font-size:1.5em">
     <%= form.submit %>
   </div>
 <% end %>
