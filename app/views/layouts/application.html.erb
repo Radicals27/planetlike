@@ -51,11 +51,11 @@
       </div>
     </div>
   </nav>
-
+  <br><br>
+  <%= image_tag "icon.png", style: 'width:20%;float:left;'%>
   <div class="container">
-
-    <header class="jumbotron my-4">
     <% if user_signed_in? %>
+    <header class="jumbotron my-4">
       <h1 class="display-3">A Warm Welcome!</h1>
       <% if !Profile.exists?(user_id: current_user.id) %>
         <p class="lead">Welcome, <%= current_user.email %>, click below to make a new profile</p>
@@ -75,7 +75,13 @@
         <p>You are not a premium user, upgrade to contact other users.</p>
         <p><%= link_to 'Upgrade membership', new_subscriber_path, {:style=>'color:#FFFFFF;', :class => "btn btn-primary btn-lg"} %></p>
       <% end %>
-  
+    <% else %>
+    <br>
+    <div class="container">
+      <p>
+        <%= image_tag "background.png", style: 'width:80%;'%>
+      </p>
+    </div>
     <% end %>
     </header>
 
