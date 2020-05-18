@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 <p>
   <% if @profile.picture.attached? %>
-    <%= image_tag @profile.picture, width: 400  %>
+
+    <%= image_tag @profile.picture, width: 400, :class => "effectfront" %>
+
   <% else %>
     <strong>You still need to upload a picture!</strong>
   <% end %>
