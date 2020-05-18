@@ -17,7 +17,8 @@ class ConversationsController < ApplicationController
     end
 
     private
-
+    
+    #Check if the user is subscribed/premium member to allow sending messages
     def validate_subscriber
         if !current_user.subscribed
             flash[:alert] = "Only subscribers can message other users!"

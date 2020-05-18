@@ -4,11 +4,10 @@ class ProfilesController < ApplicationController
   before_action :validate_user, only: [:edit, :update]   #users cannot edit, update or destroy other's profiles
   before_action :validate_admin, only: [:destroy]   #Only admins can delete a profile
 
-  # GET /profiles
-  # GET /profiles.json
   def index
     @all_profiles = Profile.all
 
+    #Establish gender/orientation instance variables for targeted results
     @gay_males = Profile.where(sex: 'Male').where(orientation: 'Gay')
     @gay_females = Profile.where(sex: 'Female').where(orientation: 'Gay')
 
@@ -21,13 +20,9 @@ class ProfilesController < ApplicationController
 
   def 
 
-  # GET /profiles/1
-  # GET /profiles/1.json
   def show
-    # @profile = Profile.find(params[:id])
   end
 
-  # GET /profiles/new
   def new
     if current_user.profile == nil
       @profile = Profile.new
@@ -36,12 +31,8 @@ class ProfilesController < ApplicationController
     end
   end
 
-  # GET /profiles/1/edit
   def edit
   end
-
-  # POST /profiles
-  # POST /profiles.json
   
   def create
     @profile = Profile.new(profile_params)
@@ -59,8 +50,6 @@ class ProfilesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /profiles/1
-  # PATCH/PUT /profiles/1.json
   def update
     respond_to do |format|
       if @profile.update(profile_params)
@@ -73,8 +62,6 @@ class ProfilesController < ApplicationController
     end
   end
 
-  # DELETE /profiles/1
-  # DELETE /profiles/1.json
   def destroy
     @profile.destroy
     respond_to do |format|
@@ -84,11 +71,12 @@ class ProfilesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_profile
       @profile = Profile.find(params[:id])
     end
 
+    #A given user can only edit/update their own profile
     def validate_user
       if current_user.id.to_s != Profile.find(params[:id]).user_id.to_s
         flash[:alert] = "You are not authorized!"
@@ -96,6 +84,7 @@ class ProfilesController < ApplicationController
       end
     end
 
+    #Admins can delete profiles
     def validate_admin
       if !current_user.has_role?(:admin)
         flash[:alert] = "Only admins can delete profiles"
