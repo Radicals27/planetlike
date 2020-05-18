@@ -31,7 +31,9 @@
   <% showing = "gay & bi women, straight & bi men" %>
 <% end %>
 
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <p class="alert alert-info">NOTICE: <%= notice %></p>
+<% end %>
 
 <%= link_to 'Advanced Search', new_search_path, 
         {:style=>'color:#FFFFFF;font-size:1.5em;', :class => "btn btn-primary btn-lg"} %>
