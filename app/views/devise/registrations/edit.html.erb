@@ -34,10 +34,11 @@
   <div class="actions" style="font-size:1.5em">
     <%= f.submit "Update" %>
   </div>
+  <br><br>
+  <div style="font-size:1.5em">
+    <p>Unhappy? <br>
+    <input type="button" value="Disable/Hide account" />
+    <!-- <%= button_to "Disable account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p> -->
+  </div>
+  <%= link_to "Back", :back %>
 <% end %>
-
-<h3>Cancel my account</h3>
-<div style="font-size:1.5em">
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-</div>
-<%= link_to "Back", :back %>
