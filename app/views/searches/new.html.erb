@@ -41,6 +41,6 @@
             <%= s.select :looking_for, options_for_select(@looking_for_options), { include_blank: true} %>
         </p>
 
-        <div class="actions"><%= s.submit "Search", class: "" %></div>
+        <div class="actions" style="font-size:1.5em"><%= s.submit "Search", class: "" %></div>
     <% end %>
     <p> <%= link_to 'Back', profiles_path %></p>
