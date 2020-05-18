@@ -41,7 +41,7 @@
 ![Planetlike Screenshot](app/assets/images/wireframes.png)
 
 ### R14	An ERD for your app
-![Planetlike Screenshot](app/assets/images/erd.png)
+![Planetlike Screenshot](app/assets/images/ERD.png)
 
 ### R15	Explain the different high-level components (abstractions) in your app
 * The application was constructed following a Model-View-Controller methodology. They can be broken down as follows:
