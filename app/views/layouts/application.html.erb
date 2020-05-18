@@ -18,15 +18,12 @@
     <div class="container">
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-
           <li class="<%= current_page?(profiles_path) ? 'nav-link active' : 'nav-link' %>"> 
             <%= link_to 'Profiles', profiles_path, class: "nav-link" %>
           </li>
-
           <li class="<%= current_page?(nav_about_path) ? 'nav-link active' : 'nav-link' %>">  
             <%= link_to 'About', nav_about_path, class: "nav-link" %>
           </li>
-
           <li class="<%= current_page?(nav_contact_path) ? 'nav-link active' : 'nav-link' %>"> 
             <%= link_to 'Contact', nav_contact_path, class: "nav-link" %>
           </li>
@@ -38,7 +35,6 @@
                 <li class="nav-link">
                   <%= link_to 'Logout', destroy_user_session_path, method: "delete", class: "nav-link" %>
                 </li>
-
               <% else %>
                 <li class="<%= current_page?(new_user_session_path) ? 'nav-link active' : 'nav-link' %>"> 
                   <%= link_to 'Login', new_user_session_path, class: "nav-link" %>
@@ -51,29 +47,24 @@
       </div>
     </div>
   </nav>
-
   <br><br>
 
   <%= image_tag "icon.png", style: 'width:20%;float:left;' %>
   <div class="container">
     <% if user_signed_in? %>
-    <header class="jumbotron my-4">
+      <header class="jumbotron my-4">
       <h1 class="display-3">A Warm Welcome!</h1>
       <% if !Profile.exists?(user_id: current_user.id) %>
         <p class="lead">Welcome, <%= current_user.email %>, click below to make a new profile</p>
-        <%= link_to 'New profile', new_profile_path, 
-        {:style=>'color:#FFFFFF;font-size:1.5em;', :class => "btn btn-primary btn-lg"} %>
+        <%= link_to 'New profile', new_profile_path, {:style=>'color:#FFFFFF;font-size:1.5em;', :class => "btn btn-primary btn-lg"} %>
       <% else %>
         <p class="lead">Welcome back, <%= current_user.email %>, click below to edit your profile</p>
-        <%= link_to 'Edit profile', edit_profile_path(Profile.find_by(user_id: current_user.id).id), 
-        {:style=>'color:#FFFFFF;font-size:1.5em;', :class => "btn btn-primary btn-lg"} %>
+        <%= link_to 'Edit profile', edit_profile_path(Profile.find_by(user_id: current_user.id).id), {:style=>'color:#FFFFFF;font-size:1.5em;', :class => "btn btn-primary btn-lg"} %>
       <% end %>
-
       <% if current_user.subscribed %>
         <p></p>
         <p>You are a permium member, you can contact other users:</p>
-        <%= link_to 'My conversations', conversations_path, 
-        {:style=>'color:#FFFFFF;font-size:1.5em;', :class => "btn btn-primary btn-lg"} %>
+        <%= link_to 'My conversations', conversations_path, {:style=>'color:#FFFFFF;font-size:1.5em;', :class => "btn btn-primary btn-lg"} %>
       <% else %>
         <p></p>
         <p>You are not a premium user, upgrade to contact other users.</p>
@@ -89,14 +80,13 @@
     <% end %>
     </header>
 
-      <% if alert %>
-        <p class="alert alert-info">NOTICE: <%= alert %></p>
-      <% end %>
+    <% if alert %>
+      <p class="alert alert-info">NOTICE: <%= alert %></p>
+    <% end %>
 
-      <%= yield %>
+    <%= yield %>
 
     </body>
-
   </div>
 
   <footer class="py-5 bg-dark">
