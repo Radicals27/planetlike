@@ -67,9 +67,11 @@ The search model stores all searches carried out by users, and holds the criteri
 
 
 ### R16	Detail any third party services that your app will use
-The app utilises Stripe's payment handling system (www.stripe.com) incorporated as a Gem in the Gemfile.
-Images are stored by implementing Cloudinary & Active Storage, using the API and assosciated Gem.
-It also utilises Bootstrap, incorporated as a Gem in the Gemfile.
+The app utilises Stripe's payment handling system (www.stripe.com) incorporated as a Gem in the Gemfile.  Stripe allows any member of the public to make secure payments online using a valid credit card.  This is used on Planetlike to accept one-off premium membership payments.
+
+Images are stored by implementing Cloudinary & Active Storage, using the API and assosciated Gem.  Cloudinary allows storing of uploaded profile pictures to a remote (Cloudinary) server for security.  This service is free.
+
+It also utilises Bootstrap, incorporated as a Gem in the Gemfile.  Bootstrap allows Planetlike to feature efficient CSS styling and formatting, and to be more flexible for any future changes to said styling.
 
 ### R17	Describe your projects models in terms of the relationships (active record associations) they have with each other
 * User **has one** profile. Limits 1 profile per user.
