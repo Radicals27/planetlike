@@ -7,10 +7,10 @@ This app seeks to solve the problem of not having a dedicated dating app for glo
 In this high-tech time, the world is very small.  We are more connected than ever, and so we no longer need to limit our relationship criteria to someone who is within 50km's of our location.  Travel is cheap and remote work is on the up and up, so this app is filling a growing need in the market.
 
 ### R9	A link (URL) to your deployed app (i.e. website)
-    https://planetlike.herokuapp.com/
+  [Planetlike website](https://planetlike.herokuapp.com/)
 
 ### R10	A link to your GitHub repository (repo).
-    https://github.com/Radicals27/planetlike
+  [Planetlike Github repo](https://github.com/Radicals27/planetlike)
 
 ### R11	Description of your marketplace app (website), including:
 - Purpose: To connect people from all around the world with each other,maximising the chances of finding a highly-compatible partner.
@@ -72,22 +72,18 @@ Images are stored by implementing Cloudinary & Active Storage, using the API and
 It also utilises Bootstrap, incorporated as a Gem in the Gemfile.
 
 ### R17	Describe your projects models in terms of the relationships (active record associations) they have with each other
-* User 
-    - may have a profile
-    - may have a role (admin)
-    - may have conversations
-    - may have a premium membership
-* Profile
-    - contains no children
-* Conversation
-    - has messages
-
-### R18	Discuss the database relations to be implemented in your application
 * User **has one** profile. Limits 1 profile per user.
 * Profile **belongs to** User. Links a profile to a user.
 * Conversation **belongs to** sender and recipient. So both the sender and recipient can view the conversation.
 * Message **belongs to** conversation and user. A *user* has the authority to view messages and *conversation* can reference all the messages inside it.
 * Role **has and belongs to many** Users.  Many users can have a given role, and any role always belongs to Users.
+
+### R18	Discuss the database relations to be implemented in your application
+* **Users** table - Contains no foreign keys and is the root table for all other tables.
+* **Profiles** table - Contains a foreign key 'user_id' to connect it to a given user from the users table
+* **Conversations** table - Contains both a 'senders_id' and 'recipient_id' which refer to user_id's from the 'Users' table.
+* **Messages** table - Contains a 'user_id' referencing the user (from the 'Users' table) who wrote the message.
+* **Users_Roles** table is a joining table connecting a given user_id from the 'Users' table with a given role_id from the 'Roles' table.
 
 
 ### R19	Provide your database schema design
