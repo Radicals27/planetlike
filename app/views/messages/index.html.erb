@@ -4,7 +4,7 @@
       <% user = User.find(message.user_id) %>
       <div id="" style="font-size: 1.5em;">
         <tr>
-          <td style="padding: 5px 10px 5px 5px;"><strong><%= Profile.find_by(user_id: user.id).name %></strong></td>
+          <td style="padding: 5px 10px 5px 5px;"><strong><%= user.email %></strong></td>
           <td style="padding: 5px 20px 5px 5px;"><%= message.message_time %></td>
           <td style="padding: 5px 10px 5px 5px;"><%= message.body %></td>
         </tr>
